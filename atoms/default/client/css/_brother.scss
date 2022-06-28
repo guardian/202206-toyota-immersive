@@ -1,3 +1,7 @@
+:root {
+  --brand-primary: #F7B500;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,12 +9,12 @@ figure.element {
   margin-top: 0 !important;
 }
 
-body {
-  font-family: "TS3 Text Sans";
-  background: #000;
-  color: white;
-  height: auto !important;
-}
+// body {
+//   font-family: "TS3 Text Sans";
+//   background: #000;
+//   color: white;
+//   height: auto !important;
+// }
 .list-unstyled {
   list-style: none;
   padding: 0;
@@ -61,7 +65,47 @@ body {
   }
   
 }
+.text-fill-bg {
+  text-decoration: none;
+  text-transform: none;
+  font-weight: 400;
+  padding: 1rem 2rem 0 0;
+  // margin: 2rem 0;
+  color: white;
+  --shadow-color: var(--brand-primary);
+  position: relative;
+  span {
+      line-height: 1.4;
+      // padding: 4px 0;
+      box-shadow: -10px 0px 0 2px var(--shadow-color), 10px 0px 0 2px var(--shadow-color), 0 0 0 2px var(--shadow-color);
+      box-decoration-break: clone;
+      background-color: var(--shadow-color);
+      font-weight: 400;
+  }
+  .quote {
+      background-color: #000;
+  }
+  .attrib {
+      background-color:var(--primary-color);
+      --shadow-color: var(--primary-color);
+      color: black;
+      font-style: italic;
+      margin-left: 10px;
+  }
 
+  &::before {
+    content: '“';
+    font-family: 'Guardian Egyptian Web';
+    font-weight: 900;
+    font-size: 97/16 + rem;
+    position: absolute;
+    left: -1rem;
+    top: -2.4rem;
+    color: black;
+  }
+  
+
+}
 // .audio-player {
   // margin: auto;
   // width: 80%;
@@ -128,11 +172,19 @@ q {
 #Glabs {
   // visibility: hidden;
   // opacity: 0;
-  background-color: #000;
+  background-color: #F0E7D9;
   // > div {
   //   background-color: #FFEAB0;
-
+    color: #000;
   // }
+}
+
+.dark-text {
+  color: #0D1136;
+}
+
+.light-text {
+  color: white;
 }
 
 .scroll-icon {
@@ -176,6 +228,7 @@ header {
   .title {
     position: relative;
     color: white;
+    background-color: var(--brand-primary);
     // margin-left: 10%;
     padding: 2rem;
     max-width: 40rem;
@@ -221,20 +274,29 @@ header {
   }
 }
 
-.main  {
-  // height: 300px;
+.w-90p {
+  width: 90%;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+@include mq($until: tablet) {
+  .m-text-right {
+    text-align: right;
+  }
 }
 
 
-
 section {
-  --panelBgColor: #D4CCFF;
-  background-color: var(--panelBgColor);
+  // --panelBgColor: #D4CCFF;
+  // background-color: var(--panelBgColor);
   
-  &.feature {
-    background: url("<%= path %>/texture.png") repeat 50% var(--panelBgColor);
-    // background-size: 40%;
-  }
+  // &.feature {
+  //   background: url("<%= path %>/texture.png") repeat 50% var(--panelBgColor);
+  //   // background-size: 40%;
+  // }
 
   h2 {
     color: black;
@@ -242,6 +304,7 @@ section {
   @include mq(desktop) {
     display: flex;
     padding: 0;
+    justify-content: center;
   }
   position: relative;
   overflow: hidden;
@@ -254,7 +317,7 @@ section {
   .content {
     padding: 0 1rem 1rem;
     // padding-bottom: 10rem;
-    color: white;
+    // color: white;
     @include mq(desktop) {
       padding: 5rem 4rem 5rem;
     }
@@ -263,7 +326,7 @@ section {
       font-size: 100%;
       text-decoration: underline;
       font-weight: normal;
-      color: white;
+      // color: white;
     }
   }
 
@@ -309,10 +372,15 @@ section {
     .title {
       // background: #F7F3EB;
       // border-radius: 10px 10px 0 0;
-      text-transform: uppercase;
-      color:black;
+      // text-transform: uppercase;
+      // color:black;
       padding: 0.5rem 0rem;
+      color: black;
+      font-weight: 400;
+      font-size: 20/16 + rem;
+      font-family: 'Display sans';
     }
+
     .player-body {
       // padding: 0 2rem;
     }
@@ -380,10 +448,10 @@ section {
 
 }
 
-$stand-first-color: #FFEAB0;
+$stand-first-color: #F7B500;
 .standfirst {
   padding-top: 2rem;
-  background-color: $stand-first-color;
+  background-color: var(--brand-primary);
   .content {
     margin: auto;
     max-width: 40rem;
@@ -431,6 +499,13 @@ section.footer {
   .cta-wrap {
     margin: auto;
     max-width: 40rem;
+    .cta  {
+      & a, & p {
+
+        font-weight: 700;
+      }
+
+    }
   }
 }
 

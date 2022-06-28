@@ -62,17 +62,18 @@ const Header = () => {
                     
                     <div className="client">
                         <p>Paid for by 
-                            <a href="#" target="_blank">
+                            <a href={content.logoLink} target="_blank">
                                 <Logo />
                             </a>
                         </p>
+                        <div className="about-content" dangerouslySetInnerHTML={setHtml(content.aboutLink)} />
                     </div>
-                        <div>
-                    <div class="title">
-                            <h1 className="text-bg"><span data-dyn="headline">{content.headline}</span></h1>
-                            <div className="subhead" dangerouslySetInnerHTML={setHtml(content.subhead)}></div>
+                        <div className="w-90p m-auto">
+                            <div class="title m-text-right">
+                                <h1 className="text-bg"><span data-dyn="headline">{content.headline}</span></h1>
+                                <div className="subhead" dangerouslySetInnerHTML={setHtml(content.subhead)}></div>
+                            </div>
                             <ScrollDown />
-                        </div>
                     </div>
                 </div>
             </div>
@@ -141,18 +142,19 @@ const SmoothScroll = ({children}) => {
 const MainBody = ({children}) => {
     const mainRef = useRef();
 
-    useEffect(()=>{
-        const resize = () => {
-            mainRef.current.style.height = mainRef.current.scrollHeight * 0.5 + 'px';
-            // console.log(mainRef.current.scrollHeight, mainRef.current.scrollHeight * 0.5 + 'px');
-            
-        }
-        window.addEventListener('resize', resize);
+    // useEffect(()=>{
+    //     const resize = () => {
+    //         // mainRef.current.style.height = mainRef.current.scrollHeight * 0.5 + 'px';
+    //         mainRef.current.style.height = document.body.scrollHeight * 0.5 + 'px';
+    //         // console.log(mainRef.current.scrollHeight, mainRef.current.scrollHeight * 0.5 + 'px');
+    //         console.log('size')
+    //     }
+    //     window.addEventListener('resize', resize);
 
-        resize();
+    //     resize();
 
-        return () => window.removeEventListener('resize', resize);
-    },[]);
+    //     return () => window.removeEventListener('resize', resize);
+    // },[]);
 
     return (
         <div className="main" ref={mainRef}>
@@ -169,7 +171,7 @@ const Main = () => {
 
 
     useEffect(()=>{
-        dispatch( fetchData('https://interactive.guim.co.uk/docsdata/1BXjH8uRPPAWgWW_C_ZNkLOEiMljrJioO8ImRyYQGil0.json') );
+        dispatch( fetchData('https://interactive.guim.co.uk/docsdata/12b7ABKuCvTUHl0toueUkTe6TLSTBCr1MP4JrjfBR3ug.json') );
     },[]);
 
 
@@ -193,19 +195,19 @@ const Main = () => {
             >
                 {!loaded && <Loading />}
                 {loaded &&
-                    <SmoothProvider skew={true}>
-                    {/* // <SmoothScroll> */}
 
                     
                     <MainBody>
-                        {/* <LoopingBgVid /> */}
+
+                        
                         <Header />
                         <Standfirst content={content} />
                         <Brother />
                         <Footer content={content} related={store.sheets.related} shareUrl={store.sheets.global[0].shareUrl} />
+                        
+                        
                     </MainBody>
-                    {/* </SmoothScroll> */}
-                    </SmoothProvider>
+                    
                 }
             </Transition>            
         </SwitchTransition>

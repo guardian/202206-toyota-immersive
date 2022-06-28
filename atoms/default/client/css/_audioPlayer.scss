@@ -14,8 +14,8 @@ video {
 
 .audio-player {
     position: relative;
-    padding: 1rem 0;
-    // background-color: #fff;
+    padding: 2rem 2rem 0;
+    background-color: #F5F1EA;
     // padding: 45px 1rem 1rem;
     // background-color: #f1f1f1;
     // align-items: flex-end;
@@ -32,6 +32,8 @@ video {
     
     .title {
         color: black;
+        font-weight: 700;
+        font-size: 20/16 + rem;
         // padding-left: 55px;
         // margin-bottom: -6px;
         // @include mq(tablet) {

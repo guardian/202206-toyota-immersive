@@ -59,28 +59,28 @@ const Section = (props) => {
 
         // Pin
 
-        // ScrollTrigger.matchMedia({
-        //     "(min-width: 980px)": function() {
-        //         const st = ScrollTrigger.create({
-        //             trigger: panelRef.current,
-        //             start: 'top 0%',
-        //             end: 'bottom 100%',
-        //             scrub: 2.2,
-        //             // markers: true,
-        //             pin: true,
-        //             invalidateOnRefresh: true
+        ScrollTrigger.matchMedia({
+            "(min-width: 980px)": function() {
+                const st = ScrollTrigger.create({
+                    trigger: panelRef.current,
+                    start: 'top 0%',
+                    end: 'bottom 100%',
+                    scrub: 2.2,
+                    // markers: true,
+                    pin: true,
+                    invalidateOnRefresh: true
     
-        //         });
+                });
 
-        //         return () => {
-        //             st.kill();
-        //         }
-        //     }
-        // });
-        // // refresh with depaly to allow for page to settle
-        // setTimeout(()=>{
-        //     ScrollTrigger.refresh();
-        // }, 1500);
+                return () => {
+                    st.kill();
+                }
+            }
+        });
+        // refresh with depaly to allow for page to settle
+        setTimeout(()=>{
+            ScrollTrigger.refresh();
+        }, 1500);
 
         // // Heading animation
         // const h2 = contentRef.current.getElementsByTagName('h2');
@@ -125,21 +125,14 @@ const Section = (props) => {
     const getBg = ()  => props.bg? {backgroundImage:`url(<%= path %>/${props.bg})`} : {};
 
     return (
-        <section ref={sectionRef} className={`container feature ${props.panel}`} style={getBg()}>
-            <div className="panel" ref={panelRef}>
-                <div className="bg">
-                    <div className="wrap">
+        <section ref={sectionRef} className={`container feature ${props.panel}`} >
 
-                        <Collage {...props} />
-                        
-                    </div>
-                </div>
-            </div>
-            
             <div className="content">
                 <div className="wrap" ref={contentRef}>
                     <div dangerouslySetInnerHTML={innerHTML(props.content)}></div>
-                    
+                    <h1 className="text-fill-bg">
+                        <span>I want this for my future. I want this for my children's future.</span>
+                    </h1>
                     <div className="audio">
                         <div className="title">Listen</div>
                         <div className="player-body">
