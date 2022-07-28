@@ -15,6 +15,7 @@ import { Logo, ScrollDown} from "./Icons";
 import {Provider, useSelector, useDispatch} from "react-redux";
 import { useEffect, useRef, useState } from "preact/hooks";
 import {SmoothProvider} from "react-smooth-scrolling";
+import AudioPlayer from "../../../../shared/js/AudioPlayer";
 
 const assetsPath = "<%= path %>";
 
@@ -60,10 +61,12 @@ const Header = () => {
                 <div className="bg"
                     style={`background-image: linear-gradient(360deg, rgba(0,0,0,0.7) 10%, transparent 40%), url('${assetsPath}/header.jpg');`}>
                     
+                    <LoopingBgVid src="2022_04_Guardian_AdamGoodes_loops_1.mp4" />
+                    
                     <div className="client">
-                        <p>Paid for by 
+                        <p>Paid for by <br />
                             <a href={content.logoLink} target="_blank">
-                                <Logo />
+                                <img src={`${assetsPath}/toyota_logo.png`} width="150" />
                             </a>
                         </p>
                         <div className="about-content" dangerouslySetInnerHTML={setHtml(content.aboutLink)} />
@@ -139,6 +142,26 @@ const SmoothScroll = ({children}) => {
     )
 }
 
+const LoopingBgVid = ({src, image}) => 
+    <div className="video-bg">
+        {image &&
+        <div className="image" style={{backgroundImage: `url(<%= path %>/${image})`}} ></div>
+        }
+        {src && 
+        <video src={`<%= path %>/${src}`} loop muted='true' autoPlay width="400" height="200" playsInline></video>
+        }
+    </div>
+
+const BgVidSection = ({src}) =>
+    <section className="bg-vid-container">
+        <LoopingBgVid src={src} />
+        <header>
+            <h1 className="text-bg"><span>The Early Adopter </span></h1>
+            <h2>Making positive environmental choices for future generations</h2>
+        </header>
+    </section>
+
+
 const MainBody = ({children}) => {
     const mainRef = useRef();
 
@@ -202,7 +225,147 @@ const Main = () => {
                         
                         <Header />
                         <Standfirst content={content} />
-                        <Brother />
+
+
+                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_1.mp4" />
+
+                        {/* <Brother /> */}
+
+                        <section className={`container`} >
+
+                            <div className="wrap">
+
+                                <div className="content">
+                                                <div><p>Adam Goodes may be best known as a champion AFL footballer, but he is also committed to the future of our planet. 
+                                        Goodes is a Toyota ambassador of National Tree Day: a beloved institution that’s become Australia’s largest community tree-planting and nature care event. Every year, the event attracts more than 300,000 participants from schools, councils, community groups and Toyota dealerships. Together, they are responsible for planting more than 26 million native trees, shrubs and grasses.
+                                        Two-thirds of National Tree Day participants are schools, and Goodes is excited about how it helps children understand the impact they can have when they work together. “What better way to build our future than by providing brand new narratives into our local communities for future generations to benefit from?”</p>
+                                            </div>
+                                </div>
+                            </div>    
+                        </section>
+                        
+                        <section className="">
+                            <div className="quote-block">
+                                <div className="quote">
+                                    <h1 className="text-fill-bg">
+                                        <span>I want this for my future. I want this for my children's future.</span>
+                                    </h1>
+                                </div>
+                                <div className="vis">
+                                    <img src={`${assetsPath}/img_1.jpg`} alt="" />
+                                </div>
+                            </div>
+                        </section>
+                        <section className={`container`} >
+
+                            <div className="wrap">
+
+                                <div className="content">
+                                                <div><p>Adam Goodes may be best known as a champion AFL footballer, but he is also committed to the future of our planet. 
+                                        Goodes is a Toyota ambassador of National Tree Day: a beloved institution that’s become Australia’s largest community tree-planting and nature care event. Every year, the event attracts more than 300,000 participants from schools, councils, community groups and Toyota dealerships. Together, they are responsible for planting more than 26 million native trees, shrubs and grasses.
+                                        Two-thirds of National Tree Day participants are schools, and Goodes is excited about how it helps children understand the impact they can have when they work together. “What better way to build our future than by providing brand new narratives into our local communities for future generations to benefit from?”</p>
+                                            </div>
+                                </div>
+                            </div>    
+                        </section>
+
+                        <section className={`container`} >
+                            <div className="">
+                                <div className="" style={{paddingBottom: '2rem'}}>
+                                    <img className="mw-100" src={`${assetsPath}/img_2.jpg`} alt="" />
+                                </div>
+                            </div>    
+                        </section>
+
+                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_2.mp4" />
+
+
+                        <section className={`container`} >
+
+                            <div className="wrap">
+                                <div className="content">
+
+                                <div>
+                                        <p>Adam Goodes may be best known as a champion AFL footballer, but he is also committed to the future of our planet. 
+                            Goodes is a Toyota ambassador of National Tree Day: a beloved institution that’s become Australia’s largest community tree-planting and nature care event. Every year, the event attracts more than 300,000 participants from schools, councils, community groups and Toyota dealerships. Together, they are responsible for planting more than 26 million native trees, shrubs and grasses.
+                            Two-thirds of National Tree Day participants are schools, and Goodes is excited about how it helps children understand the impact they can have when they work together. “What better way to build our future than by providing brand new narratives into our local communities for future generations to benefit from?”</p>
+                            </div>
+
+                                    <div className="audio">
+                                        <div className="title">Listen</div>
+                                        <div className="player-body">
+                                            <AudioPlayer title="" src={`<%= path %>/audio/`}  />
+                                            <div className="desc"></div>
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p>Adam Goodes may be best known as a champion AFL footballer, but he is also committed to the future of our planet. 
+                            Goodes is a Toyota ambassador of National Tree Day: a beloved institution that’s become Australia’s largest community tree-planting and nature care event. Every year, the event attracts more than 300,000 participants from schools, councils, community groups and Toyota dealerships. Together, they are responsible for planting more than 26 million native trees, shrubs and grasses.
+                            Two-thirds of National Tree Day participants are schools, and Goodes is excited about how it helps children understand the impact they can have when they work together. “What better way to build our future than by providing brand new narratives into our local communities for future generations to benefit from?”</p>
+                            </div>
+                                </div>
+                            </div>
+
+
+                        </section>
+
+                        <section className={`container`} >
+                            <div className="">
+                                <div className="">
+                                    <img className="mw-100" src={`${assetsPath}/img_3.jpg`} alt=""  style={{paddingBottom: '2rem'}}/>
+                                </div>
+                                <div className="container copy-image">
+                                    <div className="copy">
+                                        <p>Adam Goodes may be best known as a champion AFL footballer, but he is also committed to the future of our planet. 
+                            Goodes is a Toyota ambassador of National Tree Day: a beloved institution that’s become Australia’s largest community tree-planting and nature care event. Every year, the event attracts more than 300,000 participants from schools, councils, community groups and Toyota dealerships. Together, they are responsible for planting more than 26 million native trees, shrubs and grasses.
+                            Two-thirds of National Tree Day participants are schools, and Goodes is excited about how it helps children understand the impact they can have when they work together. “What better way to build our future than by providing brand new narratives into our local communities for future generations to benefit from?”
+                                        </p>
+                                    </div>
+                                    <div className="img">
+                                        <img className="mw-100" src={`${assetsPath}/img_4.jpg`} alt="" />
+                               </div>
+
+                                </div>
+
+                            </div>    
+                        </section>
+                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_3.mp4" />
+
+                        <section className={`container`} >
+                            <div className="wrap">
+                                <div className="container">
+                                        <div>
+                                            <p>Adam Goodes may be best known as a champion AFL footballer, but he is also committed to the future of our planet. 
+                                Goodes is a Toyota ambassador of National Tree Day: a beloved institution that’s become Australia’s largest community tree-planting and nature care event. Every year, the event attracts more than 300,000 participants from schools, councils, community groups and Toyota dealerships. Together, they are responsible for planting more than 26 million native trees, shrubs and grasses.
+                                Two-thirds of National Tree Day participants are schools, and Goodes is excited about how it helps children understand the impact they can have when they work together. “What better way to build our future than by providing brand new narratives into our local communities for future generations to benefit from?”
+                                            </p>
+                                        </div>
+                                </div>
+                                <h1 className="text-fill-bg">
+                                    <span>I want this for my future. I want this for my children's future.</span>
+                                </h1>
+                            </div>    
+                        </section>
+                        <section>
+
+
+                                <div className="container copy-image" style={{maxWidth:'62rem'}}>
+                                    <div className="copy">
+                                        <p>Adam Goodes may be best known as a champion AFL footballer, but he is also committed to the future of our planet. 
+                            Goodes is a Toyota ambassador of National Tree Day: a beloved institution that’s become Australia’s largest community tree-planting and nature care event. Every year, the event attracts more than 300,000 participants from schools, councils, community groups and Toyota dealerships. Together, they are responsible for planting more than 26 million native trees, shrubs and grasses.
+                            Two-thirds of National Tree Day participants are schools, and Goodes is excited about how it helps children understand the impact they can have when they work together. “What better way to build our future than by providing brand new narratives into our local communities for future generations to benefit from?”
+                                        </p>
+                                    </div>
+                                    <div className="">
+                                        <img className="mw-100" src={`${assetsPath}/img_5.jpg`} alt=""  style={{paddingBottom: '2rem'}} />
+                                    </div>
+
+                                </div>
+
+                        </section>
+                        
+
                         <Footer content={content} related={store.sheets.related} shareUrl={store.sheets.global[0].shareUrl} />
                         
                         

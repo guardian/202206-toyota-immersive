@@ -69,7 +69,9 @@ figure.element {
   text-decoration: none;
   text-transform: none;
   font-weight: 400;
-  padding: 1rem 2rem 0 0;
+  padding: 1rem 2rem 2rem;
+  margin-bottom: 0;
+  margin-top: 2rem;
   // margin: 2rem 0;
   color: white;
   --shadow-color: var(--brand-primary);
@@ -99,7 +101,7 @@ figure.element {
     font-weight: 900;
     font-size: 97/16 + rem;
     position: absolute;
-    left: -1rem;
+    left: 1rem;
     top: -2.4rem;
     color: black;
   }
@@ -126,19 +128,27 @@ figure.element {
 
 h1, h2 {
   line-height: 1.2;
-  font-size: 30/16 + rem;
-  text-decoration: underline;
-  text-transform: uppercase;
   font-family: "Display Sans", serif;
-  font-weight: 700;
+  color: white;
   
   span {
     font-weight: 700;
     font-family: "Display Sans", serif;
   }
+}
+h1 {
+  font-size: 30/16 + rem;
+  text-decoration: underline;
+  font-weight: 700;
   @include mq(tablet) {
-    font-size: 45/16 + rem;
+    font-size: 40/16 + rem;
   }
+}
+
+h2 {
+  line-height: 1.2;
+  font-weight: normal;
+  font-size: 26/16 + rem;
 }
 
 q {
@@ -169,6 +179,10 @@ q {
   flex-wrap: wrap;
 }
 
+.mw-100 {
+  max-width: 100%;
+}
+
 #Glabs {
   // visibility: hidden;
   // opacity: 0;
@@ -192,11 +206,12 @@ q {
   margin: 2rem 0 0;
   fill: white;
   stroke: white;
+  position: relative;
 }
 header {
   overflow: hidden;
   .flex-container {
-    height: 80vh;
+    height: 90vh;
     align-items: flex-end;
   }
   video {
@@ -206,7 +221,7 @@ header {
     height: 100%;
     top: 0;
     left: 0;
-    mix-blend-mode: screen;
+    // mix-blend-mode: screen;
   }
   .bg {
     // position: absolute;
@@ -227,12 +242,12 @@ header {
 
   .title {
     position: relative;
-    color: white;
     background-color: var(--brand-primary);
     // margin-left: 10%;
     padding: 2rem;
     max-width: 40rem;
     p {
+      // color: white;
       padding-bottom: 2rem;
       padding-right: 2rem;
     }
@@ -250,7 +265,7 @@ header {
   .subhead {
     @include mq(tablet) {
       padding-top: 2rem;
-      text-align: center;
+      // text-align: center;
     }
   }
 
@@ -258,7 +273,8 @@ header {
     display: flex;
     justify-content: flex-end;
     padding: 2rem;
-    color: black;
+    color: white;
+    z-index: 2;
     img {
       display: inline-block;
       vertical-align: middle;
@@ -266,7 +282,8 @@ header {
     }
     &>p {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-end;
       svg {
         width: 80px;
       }
@@ -319,7 +336,7 @@ section {
     // padding-bottom: 10rem;
     // color: white;
     @include mq(desktop) {
-      padding: 5rem 4rem 5rem;
+      padding: 2rem 4rem 2rem;
     }
 
     a {
@@ -343,7 +360,7 @@ section {
 
   @include mq(desktop) {
     .wrap {
-      max-width: 30rem;
+      max-width: 40rem;
     }
     
     .panel .wrap {
@@ -456,12 +473,13 @@ $stand-first-color: #F7B500;
     margin: auto;
     max-width: 40rem;
     color: black;
+    font-weight: bold;
     .lines {
       &:before, &:after {
         display: block;
         content: '';
         height: 6px;
-        background-color: #000;
+        background-color: #fff;
         margin: auto;
         // width: 60%;
       }
@@ -469,6 +487,10 @@ $stand-first-color: #F7B500;
         padding: 2rem 0;
         width: 95%;
         margin: auto;
+        p {
+          font-weight: bold;
+
+        }
       }
     }
   }
@@ -596,5 +618,121 @@ section.footer {
     margin: 2px;
     height: 1px;
     background: #0000007d;
+  }
+}
+
+.bg-vid-container {
+  position: relative;
+  height: 90vh;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  header {
+    width: 90%;
+    max-width: 440px;
+    position: relative;
+
+    h1 {
+      font-size: 36/16 + rem;
+    }
+    h2 {
+      color: white;
+      font-size: 24/16 + rem;
+    }
+    @include mq(tablet) {
+      h1 {
+        font-size: 45/16 + rem;
+      }
+      h2 {
+        font-size: 36/16 + rem;
+      }
+
+    }
+  }
+}
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  video,.image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+}
+.center-para {
+  max-width: 30rem;
+  margin: auto;
+  padding: 2rem 0;
+  @include mq(tablet) {
+    padding: 2rem;
+  }
+}
+.yt-vid {
+  width: 80vmin;
+  height: 45vmin;
+  margin: auto;
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.quote-block {
+
+  .quote {
+    padding: 2rem 2rem 0;
+  }
+
+  .vis {
+    margin-top: -1rem;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  @include mq(desktop) {
+    display: flex;
+    width: 70%;
+    justify-content: flex-end;
+    margin: auto;
+    
+    .vis {
+      width: 70%;
+    }
+    .quote {
+      display: flex;
+      width: 40%;
+      align-items: center;
+      margin-left: 4rem;
+      left: 10%;
+      height: 100%;
+      position: absolute;      
+    }
+  }
+}
+
+.copy-image {
+  padding: 1rem;
+  @include mq(desktop) {
+    padding: 0;
+    display: flex;
+    .copy {
+      width: 40rem;
+      padding-left: 11rem;
+      padding-right: 2rem;
+      p:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
