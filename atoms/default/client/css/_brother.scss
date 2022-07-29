@@ -272,6 +272,7 @@ header {
   .client {
     display: flex;
     justify-content: flex-end;
+    flex-direction: column;
     padding: 2rem;
     color: white;
     z-index: 2;
@@ -288,6 +289,14 @@ header {
         width: 80px;
       }
     }
+  }
+  .about-content {
+    a {
+      color: white;
+      font-size: 70%;
+
+    }
+    text-align: right;
   }
 }
 
@@ -405,7 +414,7 @@ section {
     @include mq(tablet) {
       // width: 80%;
       margin: 2rem auto;
-      max-width: 30rem;
+      max-width: 34rem;
     }
 
     .desc p {
@@ -723,6 +732,9 @@ section.footer {
 
 .copy-image {
   padding: 1rem;
+  .img {
+    height: 50vh;
+  }
   @include mq(desktop) {
     padding: 0;
     display: flex;
@@ -733,6 +745,70 @@ section.footer {
       p:first-child {
         margin-top: 0;
       }
+    }
+    .img {
+      width: 50%;
+    }
+  }
+}
+
+.img-3 {
+  height: 50vw;
+  width: 90vw;
+  margin: auto;
+  background-size: cover;
+
+  @include mq(desktop ) {
+    height: 48vw;
+    width: 80vw;
+    max-width: 1200px;
+    margin-bottom: 2rem;    
+  }
+}
+
+.img-4, .img-5 {
+  height: 100%;
+  background-size: cover;
+
+}
+
+.s3Block2 {
+  max-width: 40rem;
+  .copy p:first-child {
+    margin-top: 0;
+  }
+  @include mq(desktop) {
+    display: flex;
+    .img,.copy {
+      width: 50%;
+    }
+  }
+}
+
+.img-5-wrap {
+  background-size: cover;
+  height: 50vh;
+  @include mq(desktop) {
+    height: auto;
+  }
+}
+
+.s2Block3 {
+  margin-bottom: 2rem;
+}
+
+.s3Block2 {
+  margin: auto;
+  @include mq(desktop) {
+    .copy {
+      width: 70%;
+      padding-right: 2rem;
+    }
+    .img {
+      width: 30%;
+    }
+    .img-5 {
+      min-width: 400px;
     }
   }
 }

@@ -36,6 +36,9 @@ const rootReducer = (state = initialState, action) => {
             action.payload.global.forEach(v => {
                 content[v.key] = v.content;
             })
+            action.payload.sections.forEach(v => {
+                content[v.key] = v.content;
+            })
             
             return {...state, sheets: action.payload, content: content };
             // return {...state, sheets: action.payload };
