@@ -228,7 +228,7 @@ const Main = () => {
                         <Standfirst content={content} />
 
 
-                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_1.mp4" title={content.s1Head}/>
+                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_2.mp4" title={content.s1Head}/>
 
                         {/* <Brother /> */}
 
@@ -278,7 +278,7 @@ const Main = () => {
                             </div>    
                         </section>
 
-                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_2.mp4" title={content.s2Head} />
+                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_3.mp4" title={content.s2Head} />
 
 
                         <section className={`container`} >
@@ -331,7 +331,7 @@ const Main = () => {
 
                             </div>    
                         </section>
-                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_3.mp4" title={content.s3Head} />
+                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_4.mp4" title={content.s3Head} />
 
                         <section className={`container`} >
                             <div className="wrap">
