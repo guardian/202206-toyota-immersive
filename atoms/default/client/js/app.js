@@ -143,15 +143,27 @@ const SmoothScroll = ({children}) => {
     )
 }
 
-const LoopingBgVid = ({src, image}) => 
-    <div className="video-bg">
-        {image &&
-        <div className="image" style={{backgroundImage: `url(<%= path %>/${image})`}} ></div>
-        }
-        {src && 
-        <video src={`<%= path %>/${src}`} loop muted='true' autoPlay width="400" height="200" playsInline></video>
-        }
-    </div>
+const LoopingBgVid = ({src, image}) => {
+    const ref = useRef();
+    const handCanPlay = () => {
+        gsap.to(ref.current, {alpha: 1});
+    }
+
+    useEffect(()=>{
+        gsap.set(ref.current, {alpha: 0});
+    }, []);
+    
+    return (
+        <div className="video-bg">
+            {image &&
+            <div className="image" style={{backgroundImage: `url(<%= path %>/${image})`}} ></div>
+            }
+            {src && 
+            <video ref={ref} src={`<%= path %>/${src}`} loop muted='true' autoPlay width="400" height="200" playsInline onCanPlayThrough={handCanPlay}></video>
+            }
+        </div>
+    )
+}
 
 const BgVidSection = ({src, title}) =>
     <section className="bg-vid-container">
