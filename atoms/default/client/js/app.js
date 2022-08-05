@@ -72,7 +72,7 @@ const Header = () => {
                         <div className="about-content" {...setHtml(content.aboutLink)} />
                     </div>
                         <div className="w-90p m-auto">
-                            <div class="title m-text-right">
+                            <div class="title">
                                 <h1 className="text-bg"><span data-dyn="headline" {...setHtml(content.headline)}></span></h1>
                                 <div className="subhead" {...setHtml(content.subhead)}></div>
                             </div>
@@ -293,10 +293,10 @@ const Main = () => {
                             </div>
 
                                     <div className="audio">
-                                        <div className="title">Listen</div>
+                                        <div className="title">Listen: {content.s2AudioDesc}</div>
                                         <div className="player-body">
                                             <AudioPlayer title="" src={`<%= path %>/audio/${content.s2Audio}`}  />
-                                            <div className="desc"></div>
+                                            {/* <div className="desc" {...setHtml(content.s2AudioDesc)}></div> */}
 
                                         </div>
                                     </div>
@@ -327,6 +327,17 @@ const Main = () => {
                                         <div className="img-4" src={`${assetsPath}/img_4.jpg`} alt=""  style={{backgroundImage: `url("${assetsPath}/img_4.jpg")`}}/>
                                </div>
 
+                                </div>
+                                <div className="content">
+
+                                    <div className="audio">
+                                            <div className="title">Listen: {content.s3AudioDesc}</div>
+                                            <div className="player-body">
+                                                <AudioPlayer title="" src={`<%= path %>/audio/${content.s3Audio}`}  />
+                                                {/* <div className="desc" {...setHtml(content.s3AudioDesc)}></div> */}
+
+                                            </div>
+                                        </div>
                                 </div>
 
                             </div>    
