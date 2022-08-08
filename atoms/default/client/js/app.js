@@ -76,7 +76,7 @@ const Header = () => {
                                 <h1 className="text-bg"><span data-dyn="headline" {...setHtml(content.headline)}></span></h1>
                                 <div className="subhead" {...setHtml(content.subhead)}></div>
                             </div>
-                            <ScrollDown />
+                            
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@ const Standfirst = ({content}) => {
 
                 </div>
                 </div>
-                <ScrollDown />
+                
             </div>
         </section>
     )
@@ -305,10 +305,10 @@ const Main = () => {
                             </div>
 
                                     <div className="audio">
-                                        <div className="title">Listen: {content.s2AudioDesc}</div>
+                                        <div className="title">Listen</div>
                                         <div className="player-body">
                                             <AudioPlayer title="" src={`<%= path %>/audio/${content.s2Audio}`}  />
-                                            {/* <div className="desc" {...setHtml(content.s2AudioDesc)}></div> */}
+                                            <div className="desc" {...setHtml(content.s2AudioDesc)}></div>
 
                                         </div>
                                     </div>
@@ -340,19 +340,26 @@ const Main = () => {
                                </div>
 
                                 </div>
+                                
+
+                            </div>    
+                        </section>
+                        <section className="container">
+                            <div className="wrap">
                                 <div className="content">
 
-                                    <div className="audio">
-                                            <div className="title">Listen: {content.s3AudioDesc}</div>
+
+                                    <div className="audio" style="margin: 0 auto;">
+                                            <div className="title">Listen</div>
                                             <div className="player-body">
                                                 <AudioPlayer title="" src={`<%= path %>/audio/${content.s3Audio}`}  />
-                                                {/* <div className="desc" {...setHtml(content.s3AudioDesc)}></div> */}
+                                                <div className="desc" {...setHtml(content.s3AudioDesc)}></div>
 
                                             </div>
                                         </div>
                                 </div>
+                            </div>
 
-                            </div>    
                         </section>
                         <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_4.mp4" title={content.s3Head} />
 
