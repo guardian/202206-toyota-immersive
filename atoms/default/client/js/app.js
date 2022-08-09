@@ -16,6 +16,7 @@ import {Provider, useSelector, useDispatch} from "react-redux";
 import { useEffect, useRef, useState } from "preact/hooks";
 import {SmoothProvider} from "react-smooth-scrolling";
 import AudioPlayer from "../../../../shared/js/AudioPlayer";
+import videojs from 'video.js';
 
 const assetsPath = "<%= path %>";
 
@@ -197,6 +198,69 @@ const MainBody = ({children}) => {
             {children}
         </div>
     )
+}
+
+
+const VideoPlayer = () => {
+
+    const playerRef = useRef();
+    const videoRef = useRef();
+
+    // videojs.options.bigPlayButton = false;
+    videojs.options.html5 = {
+
+        nativeTextTracks: false,
+        nativeAudioTracks: false,
+        nativeVideoTracks: false,
+        hls: {
+          overrideNative: true
+        }
+
+    }
+
+    useEffect(()=>{
+        // https://videojs.com/guides/layout/
+        if (!playerRef.current) {
+
+            if (!videoRef.current) return;
+            const player = playerRef.current = videojs(videoRef.current, {
+                inactivityTimeout: 0,       
+            });
+            // player.autoplay(true)
+            player.src({
+                // src: '/assets/video/out.mpd',
+                // type: 'application/dash+xml'
+                // https://stackoverflow.com/questions/29351225/playing-with-video-js-ustream-m3u8-file-streaming
+                src: `${assetsPath}/video/agoods-720.m3u8`,
+                type: 'application/x-mpegURL'
+              });
+            // player.src('/assets/video/bethechange.mp4');
+            // player.on('ended',(e)=>{
+            //     // console.log('END', e);
+            //     setVideoEnded(true);
+            //     player.one('timeupdate',(e)=>{
+            //         // console.log(e);
+            //         setVideoEnded(false);
+            //     });                
+            // });
+
+            player.on('loadedmetadata',()=>{
+                const dur = player.duration();
+                console.log('duration', dur);
+                
+            });
+        }
+
+    },[videoRef])    
+
+    return (
+        <div className="video-player">
+            <video ref={videoRef} controls playsInline className={`video-js vjs-fill`} >
+            {/* <track kind="metadata" src="/assets/video/meta.vtt"/> */}
+            </video>
+        </div>
+    )
+
 }
 
 const Main = () => {
@@ -396,6 +460,7 @@ const Main = () => {
 
                         </section>
                         
+                        <VideoPlayer />
 
                         <Footer content={content} related={store.sheets.related} shareUrl={store.sheets.global[0].shareUrl} />
                         

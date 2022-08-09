@@ -431,7 +431,7 @@ section {
     }
 
     .desc {
-      padding: 1rem;
+      padding: 1rem 2rem;
       background-color: #F5F1EA;
     }
 
@@ -841,5 +841,40 @@ section.footer {
     .img-5 {
       min-width: 400px;
     }
+  }
+}
+
+.video-player {
+  height: 27vh;
+
+  @include mq(tablet) {
+    height: 77vh;
+  }
+  // margin: 2rem 0;
+  .video-js {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .vjs-big-play-button {
+    position: relative;
+    transform: scale(1.5);
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+
+    .vjs-icon-placeholder {
+      transform: scale(1.8);
+      &::before {
+        position: relative;
+      }
+    }
+  }
+  .vjs-has-started .vjs-big-play-button {
+    display: none;
   }
 }
