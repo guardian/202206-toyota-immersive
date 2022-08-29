@@ -270,7 +270,7 @@ header {
 
   .subhead {
     @include mq(tablet) {
-      padding-top: 2rem;
+      // padding-top: 2rem;
       // text-align: center;
     }
   }
@@ -497,6 +497,7 @@ $stand-first-color: #F7B500;
     max-width: 40rem;
     color: black;
     font-weight: bold;
+    
     .lines {
       &:before, &:after {
         display: block;
@@ -512,7 +513,8 @@ $stand-first-color: #F7B500;
         margin: auto;
         p {
           font-weight: bold;
-
+          font-size: 1.5rem;
+          line-height: 1.3;
         }
       }
     }
