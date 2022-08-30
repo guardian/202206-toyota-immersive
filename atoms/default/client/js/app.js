@@ -340,17 +340,14 @@ const Main = () => {
                             </div>
                         </section>
 
-                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_4.mp4" title={content.s3Head} />
+                        <BgVidSection src="2022_04_Guardian_AdamGoodes_loops_3.mp4" title={content.s3Head} />
 
                         <section className={`container`} >
                             <div className="wrap">
                                 <div className="content">
                                         <div {...setHtml(content.s3Block1)}>
-                                            <p>Adam Goodes may be best known as a champion AFL footballer, but he is also committed to the future of our planet. 
-                                Goodes is a Toyota ambassador of National Tree Day: a beloved institution that’s become Australia’s largest community tree-planting and nature care event. Every year, the event attracts more than 300,000 participants from schools, councils, community groups and Toyota dealerships. Together, they are responsible for planting more than 26 million native trees, shrubs and grasses.
-                                Two-thirds of National Tree Day participants are schools, and Goodes is excited about how it helps children understand the impact they can have when they work together. “What better way to build our future than by providing brand new narratives into our local communities for future generations to benefit from?”
-                                            </p>
                                         </div>
+                                        <div {...setHtml(content.photoCredits)}></div>
                                 </div>
 
                             </div>    
@@ -359,7 +356,9 @@ const Main = () => {
 
                                     <div className="wrap">
                                         <img src={`${assetsPath}/img_5.jpg`} />
-                                        <div className="content"></div>
+                                        <div className="content">
+                                            
+                                        </div>
 
                                     </div>
                         </section>
